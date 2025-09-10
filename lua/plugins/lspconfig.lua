@@ -38,7 +38,24 @@ lspconfig.clangd.setup({
 -- Python
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 lspconfig.pyright.setup({
-    capabilities = capabilities,
+  capabilities = capabilities,
+  settings = {
+    python = {
+      analysis = {
+        -- pick ONE of these depending on how much you want to see:
+        -- typeCheckingMode = "off",      -- show almost nothing from the checker
+        typeCheckingMode = "basic",       -- lighter than "standard" (default)
+
+        -- Disable noisy rules you don't control (examples from your screenshot)
+        diagnosticSeverityOverrides = {
+          reportArgumentType = "none",
+          reportTypedDictNotRequiredAccess = "none",
+          reportOptionalMemberAccess = "none",
+          reportOptionalSubscript = "none",
+        },
+      },
+    },
+  },
 })
 local cmp = require("cmp")
 
