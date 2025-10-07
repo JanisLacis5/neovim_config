@@ -37,6 +37,8 @@ plug('williamboman/mason-lspconfig.nvim')
 -- Snippets (optional but recommended)
 plug('L3MON4D3/LuaSnip')
 plug('saadparwaiz1/cmp_luasnip')
+plug("SirVer/ultisnips")
+plug("quangnguyen30192/cmp-nvim-ultisnips")
 
 -- Optional snippet collection
 plug('rafamadriz/friendly-snippets')
