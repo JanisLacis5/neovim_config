@@ -7,9 +7,7 @@ vim.g.UltiSnipsSnippetDirectories = {
 }
 
 -- Kill UltiSnips’ own <Tab> mappings so they don’t fight cmp
-vim.g.UltiSnipsExpandTrigger = "<Nop>"
-vim.g.UltiSnipsJumpForwardTrigger = "<Nop>"
-vim.g.UltiSnipsJumpBackwardTrigger = "<Nop>"
+
 
 local function in_tex() return vim.bo.filetype == "tex" end
 
@@ -83,3 +81,14 @@ cmp.setup.filetype("tex", {
     { name = "path" },
   }),
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "tex",
+  callback = function()
+    local cmp = require("cmp")
+    cmp.setup.buffer({ enabled = false })
+  end,
+})
+vim.g.UltiSnipsExpandTrigger = "<tab>"
+vim.g.UltiSnipsJumpForwardTrigger = "<tab>"
+vim.g.UltiSnipsJumpBackwardTrigger = "<s-tab>"

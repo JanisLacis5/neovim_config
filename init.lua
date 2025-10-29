@@ -5,6 +5,11 @@ vim.g.start_time = vim.fn.reltime()
 vim.g.mapleader = " "
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
+vim.g.vimtex_compiler_latexmk = {
+    build_dir='build',
+    options={'-shell-escape'}
+}
+
 vim.loader.enable()
 vim.call('plug#begin')
 
