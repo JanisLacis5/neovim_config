@@ -33,6 +33,7 @@ plug('hrsh7th/cmp-buffer')
 plug('hrsh7th/cmp-path')
 plug('williamboman/mason.nvim')
 plug('williamboman/mason-lspconfig.nvim')
+plug('mg979/vim-visual-multi', { branch = 'master' })
 
 -- Snippets (optional but recommended)
 plug('L3MON4D3/LuaSnip')

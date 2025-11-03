@@ -1,3 +1,4 @@
+vim.keymap.set("i", "<C-Del>", "<C-o>dw")
 vim.keymap.set('n', '<leader>e', ":NvimTreeToggle<CR>", {noremap=true, silent=true})
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
