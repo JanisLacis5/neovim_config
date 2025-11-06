@@ -1,5 +1,4 @@
 -- Basic LSP setup (C/C++ via clangd)
-local lspconfig = require('lspconfig')
 local capabilities = require('plugins.cmp_nvim_lsp').capabilities
 
 local on_attach = function(_, bufnr)
@@ -29,15 +28,19 @@ vim.diagnostic.config({
 })
 
 -- clangd (install it on your system: e.g. `sudo apt install clangd` or `brew install llvm`)
-lspconfig.clangd.setup({
+vim.lsp.config("clangd", {
+  root_markers = { '.clangd', 'compile_commands.json' },
+  filetypes = { "c", "cpp" },
+  cmd = { "clangd" },
   capabilities = capabilities,
   on_attach = on_attach,
-  -- cmd = { "clangd", "--background-index", "--clang-tidy", "--header-insertion=iwyu" }, -- optional flags
 })
+vim.lsp.enable({ "clangd" })
 
 -- Python
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-lspconfig.pyright.setup({
+vim.lsp.config("pyright", {
+  filetypes = { "python" },
   capabilities = capabilities,
   settings = {
     python = {
@@ -57,8 +60,10 @@ lspconfig.pyright.setup({
     },
   },
 })
-local cmp = require("cmp")
+vim.lsp.enable({ "pyright" })
 
+
+local cmp = require("cmp")
 cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ["<CR>"] = cmp.mapping.confirm({ select = true }),
