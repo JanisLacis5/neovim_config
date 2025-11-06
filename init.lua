@@ -1,6 +1,11 @@
 local vim = vim
 local plug = vim.fn['plug#']
 
+vim.g.UltiSnipsExpandTrigger = '<tab>'
+vim.g.UltiSnipsJumpForwardTrigger = '<tab>'
+vim.g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
+vim.g.UltiSnipsSnippetDirectories = { "lua/plugins/ultisnips" }
+
 vim.g.start_time = vim.fn.reltime()
 vim.g.mapleader = " "
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
@@ -36,8 +41,8 @@ plug('williamboman/mason-lspconfig.nvim')
 plug('mg979/vim-visual-multi', { branch = 'master' })
 
 -- Snippets (optional but recommended)
-plug('L3MON4D3/LuaSnip')
-plug('saadparwaiz1/cmp_luasnip')
+plug('SirVer/ultisnips')
+plug('quangnguyen30192/cmp-nvim-ultisnips')
 
 -- Optional snippet collection
 plug('rafamadriz/friendly-snippets')
@@ -67,7 +72,7 @@ require('plugins.whichkey')
 require('plugins.cmp_nvim_lsp')
 require('plugins.nvim_cmp')
 require('plugins.lspconfig')
-require('plugins.luasnip')
+-- require('plugins.luasnip')
 
 vim.cmd.colorscheme("catppuccin") -- dracula | catppuccin
 
