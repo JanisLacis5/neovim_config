@@ -47,3 +47,4 @@ local function open_config_in_new_terminal()
 end
 
 vim.keymap.set("n", "<leader>ev", open_config_in_new_terminal, { desc = "Open ~/.config/nvim in a new terminal" })
+vim.keymap.set("n", "<F2>", vim.lsp.buf.rename)
