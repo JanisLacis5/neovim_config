@@ -1,10 +1,10 @@
 local vim = vim
 local plug = vim.fn['plug#']
 
-vim.g.UltiSnipsExpandTrigger = '<tab>'
-vim.g.UltiSnipsJumpForwardTrigger = '<tab>'
-vim.g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
-vim.g.UltiSnipsSnippetDirectories = { "lua/plugins/ultisnips" }
+-- vim.g.UltiSnipsExpandTrigger = '<tab>'
+-- vim.g.UltiSnipsJumpForwardTrigger = '<tab>'
+-- vim.g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
+-- vim.g.UltiSnipsSnippetDirectories = { "lua/plugins/ultisnips" }
 
 vim.g.start_time = vim.fn.reltime()
 vim.g.mapleader = " "
@@ -41,8 +41,10 @@ plug('williamboman/mason-lspconfig.nvim')
 plug('mg979/vim-visual-multi', { branch = 'master' })
 
 -- Snippets (optional but recommended)
-plug('SirVer/ultisnips')
-plug('quangnguyen30192/cmp-nvim-ultisnips')
+-- plug('SirVer/ultisnips')
+-- plug('quangnguyen30192/cmp-nvim-ultisnips')
+plug('L3MON4D3/LuaSnip')
+plug('saadparwaiz1/cmp_luasnip')
 
 -- Optional snippet collection
 plug('rafamadriz/friendly-snippets')
