@@ -17,7 +17,8 @@ vim.keymap.set("n", "<leader>s", function()
     vim.o.conceallevel = 0
   end
 end)
-vim.keymap.set('n', '<leader>t', ':vsplit<CR>')
+vim.keymap.set('n', '<leader>v', ':vsplit<CR>')
+vim.keymap.set("n", "<leader>h", "split<CR>")
 vim.keymap.set("n", "<A-j>", function()
   vim.cmd("move .+" .. vim.v.count1); vim.cmd("normal! ==")
 end, { silent = true })
@@ -46,5 +47,5 @@ local function open_config_in_new_terminal()
   vim.notify("No known terminal found. Edit the command list for your terminal.", vim.log.levels.ERROR)
 end
 
-vim.keymap.set("n", "<leader>ev", open_config_in_new_terminal, { desc = "Open ~/.config/nvim in a new terminal" })
+vim.keymap.set("n", "<leader>mv", open_config_in_new_terminal, { desc = "Open ~/.config/nvim in a new terminal" })
 vim.keymap.set("n", "<F2>", vim.lsp.buf.rename)

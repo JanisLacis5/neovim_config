@@ -6,6 +6,16 @@ local plug = vim.fn['plug#']
 -- vim.g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
 -- vim.g.UltiSnipsSnippetDirectories = { "lua/plugins/ultisnips" }
 
+vim.g.vimtex_compiler_latexmk = {
+  options = {
+    '-shell-escape',
+    '-verbose',
+    '-file-line-error',
+    '-interaction=nonstopmode',
+    '-synctex=1',
+  },
+}
+
 vim.g.start_time = vim.fn.reltime()
 vim.g.mapleader = " "
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
