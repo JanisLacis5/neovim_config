@@ -50,6 +50,14 @@ plug('williamboman/mason.nvim')
 plug('williamboman/mason-lspconfig.nvim')
 plug('mg979/vim-visual-multi', { branch = 'master' })
 
+-- Debug 
+plug('mfussenegger/nvim-dap')
+plug('rcarriga/nvim-dap-ui')
+plug('theHamsta/nvim-dap-virtual-text')
+plug('nvim-neotest/nvim-nio')
+plug('jay-babu/mason-nvim-dap.nvim')
+
+
 -- Snippets (optional but recommended)
 -- plug('SirVer/ultisnips')
 -- plug('quangnguyen30192/cmp-nvim-ultisnips')
@@ -84,20 +92,8 @@ require('plugins.whichkey')
 require('plugins.cmp_nvim_lsp')
 require('plugins.nvim_cmp')
 require('plugins.lspconfig')
--- require('plugins.luasnip')
+require('plugins.luasnip')
+require('plugins.debugger')
 
 vim.cmd.colorscheme("catppuccin") -- dracula | catppuccin
 
-vim.api.nvim_create_user_command("ReloadConfigFull", function()
-  local cfg = vim.fn.stdpath("config")
-  local lua_root = cfg .. "/lua/"
-  -- unload only modules that live under ~/.config/nvim/lua/
-  for name, _ in pairs(package.loaded) do
-    local modpath = package.searchpath(name, package.path)
-    if modpath and modpath:find(lua_root, 1, true) then
-      package.loaded[name] = nil
-    end
-  end
-  dofile(cfg .. "/init.lua")
-  vim.notify("Config fully reloaded", vim.log.levels.INFO)
-end, {})
