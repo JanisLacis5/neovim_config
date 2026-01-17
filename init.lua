@@ -36,10 +36,15 @@ plug('goolord/alpha-nvim') --pretty startup
 plug('nvim-treesitter/nvim-treesitter') --improved syntax
 plug('mfussenegger/nvim-lint') --async linter
 plug('lewis6991/gitsigns.nvim') --git
-plug('ibhagwan/fzf-lua') --fuzzy finder and grep
+-- plug('ibhagwan/fzf-lua') --fuzzy finder and grep
 plug('numToStr/FTerm.nvim') --floating terminal
 plug('ron-rs/ron.vim') --ron syntax highlighting
 plug('MeanderingProgrammer/render-markdown.nvim') --render md inline
+plug('nvim-telescope/telescope.nvim')
+plug('nvim-lua/plenary.nvim')
+plug('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
+plug('nvim-telescope/telescope-file-browser.nvim')
+
 -- LSP + completion
 plug('neovim/nvim-lspconfig')
 plug('hrsh7th/nvim-cmp')
@@ -81,7 +86,7 @@ require('plugins.colorscheme')
 require('plugins.comment')
 require('plugins.barbar')
 require('plugins.fterm')
-require('plugins.fzf')
+-- require('plugins.fzf')
 require('plugins.gitsigns')
 require('plugins.lualine')
 require('plugins.nvimlint')
@@ -94,6 +99,13 @@ require('plugins.nvim_cmp')
 require('plugins.lspconfig')
 require('plugins.luasnip')
 require('plugins.debugger')
+require('plugins.telescope')
 
 vim.cmd.colorscheme("catppuccin") -- dracula | catppuccin
 
+vim.api.nvim_create_autocmd("BufWritePost", {
+    pattern = "*.cpp",
+    callback = function()
+        vim.system({"make", "-C", "build", "format"})
+    end,
+})
