@@ -36,14 +36,14 @@ plug('goolord/alpha-nvim') --pretty startup
 plug('nvim-treesitter/nvim-treesitter') --improved syntax
 plug('mfussenegger/nvim-lint') --async linter
 plug('lewis6991/gitsigns.nvim') --git
--- plug('ibhagwan/fzf-lua') --fuzzy finder and grep
+plug('ibhagwan/fzf-lua') --fuzzy finder and grep
 plug('numToStr/FTerm.nvim') --floating terminal
 plug('ron-rs/ron.vim') --ron syntax highlighting
 plug('MeanderingProgrammer/render-markdown.nvim') --render md inline
-plug('nvim-telescope/telescope.nvim')
-plug('nvim-lua/plenary.nvim')
-plug('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
-plug('nvim-telescope/telescope-file-browser.nvim')
+-- plug('nvim-telescope/telescope.nvim')
+-- plug('nvim-lua/plenary.nvim')
+-- plug('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
+-- plug('nvim-telescope/telescope-file-browser.nvim')
 
 -- LSP + completion
 plug('neovim/nvim-lspconfig')

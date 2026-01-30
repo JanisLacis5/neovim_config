@@ -31,7 +31,7 @@ vim.diagnostic.config({
 vim.lsp.config("clangd", {
   root_markers = { '.clangd', 'compile_commands.json' },
   filetypes = { "c", "cpp" },
-  cmd = { "clangd", "--compile-commands-dir=build", "--query-driver=/usr/bin/c++,/usr/bin/g++,/usr/bin/clang++"},
+  cmd = { "clangd", "--compile-commands-dir=build/release", "--query-driver=/usr/bin/c++,/usr/bin/g++,/usr/bin/clang++"},
   capabilities = capabilities,
   on_attach = on_attach,
 })
