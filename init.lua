@@ -99,7 +99,7 @@ require('plugins.nvim_cmp')
 require('plugins.lspconfig')
 require('plugins.luasnip')
 require('plugins.debugger')
-require('plugins.telescope')
+-- require('plugins.telescope')
 
 vim.cmd.colorscheme("catppuccin") -- dracula | catppuccin
 

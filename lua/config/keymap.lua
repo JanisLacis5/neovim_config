@@ -7,7 +7,7 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set('n', '<Tab>', ':BufferNext<CR>')
 vim.keymap.set('n', '<S-Tab>', ':BufferPrevious<CR>')
 vim.keymap.set('n', '<leader><Tab>', ':BufferClose<CR>')
--- vim.keymap.set('n', '<leader>f', ":FzfLua files<CR>")
+vim.keymap.set('n', '<leader>f', ":FzfLua files<CR>")
 vim.keymap.set('n', '<C-\\>', function() require("FTerm").toggle() end)
 vim.keymap.set('t', '<C-\\>', function() require("FTerm").toggle() end)
 vim.keymap.set('n', '<leader>v', ':vsplit<CR>')
@@ -41,33 +41,7 @@ end, { silent = true })
 vim.keymap.set("n", "<A-k>", function()
   vim.cmd("move .-" .. (vim.v.count1 + 1)); vim.cmd("normal! ==")
 end, { silent = true })
-
 vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
 vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
 vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
-
-
-
--- -- Repeatable window resizing (tmux-like): press once, then spam the same key
--- local function repeatable_resize(cmd, replay_key)
---   return function()
---     -- If you prefix with a count, resize by that many "steps"
---     local count = vim.v.count1
---     for _ = 1, count do
---       vim.cmd(cmd)
---     end
---
---     -- Re-enter the same key so you can keep spamming it
---     local keys = vim.api.nvim_replace_termcodes(replay_key, true, false, true)
---     vim.api.nvim_feedkeys(keys, "n", false)
---   end
--- end
---
--- -- Horizontal split height
--- vim.keymap.set("n", "<C-w><A-k>", repeatable_resize("resize +2", "<C-w><A-k>"), { silent = true })
--- vim.keymap.set("n", "<C-w><A-j>", repeatable_resize("resize -2", "<C-w><A-j>"), { silent = true })
---
--- -- Vertical split width
--- vim.keymap.set("n", "<C-w><A-l>", repeatable_resize("vertical resize -2", "<C-w><A-l>"), { silent = true })
--- vim.keymap.set("n", "<C-w><A-k>", repeatable_resize("vertical resize +2", "<C-w><A-h>"), { silent = true })
